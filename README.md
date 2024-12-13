@@ -44,6 +44,28 @@ function App() {
 }
 ```
 
+## Update library
+
+1. Rebuild library
+```
+npm run build
+```
+
+2. update version in package.json
+```
+npm run build
+```
+
+3. Publish new version
+```
+npm publish --access public
+```
+
+4. In the consumer app, update to the new version:
+```
+yarn upgrade @horizontal-org/shira-ui
+```
+
 ## Contributing
 
 1. Create a new component in `src/`
