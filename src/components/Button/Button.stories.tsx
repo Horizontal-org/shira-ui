@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 
 const meta = {
   title: 'Components/Button',
@@ -15,13 +16,25 @@ const meta = {
       description: 'The visual style of the button',
       defaultValue: 'primary'
     },
-    onClick: {
-      action: 'clicked',
-      description: 'Optional click handler'
+    leftIcon: {
+      control: 'boolean',
+      description: 'Icon component to render on the left'
     },
-    children: {
-      control: 'text',
-      description: 'Button content'
+    rightIcon: {
+      control: 'boolean',
+      description: 'Icon component to render on the right'
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disable button interactions'
+    },
+    size: {
+      control: 'select',
+      options: ['default', 'lg'],
+      description: 'Button size variant'
+    },
+    onClick: {
+      action: 'clicked'
     }
   }
 } satisfies Meta<typeof Button>;
@@ -47,6 +60,32 @@ export const Secondary: Story = {
   args: {
     children: 'Secondary Button',
     type: 'secondary'
+  }
+};
+
+// Icon examples
+export const WithLeftIcon: Story = {
+  args: {
+    children: 'Back',
+    leftIcon: <FiChevronLeft size={16} />,
+    type: 'primary'
+  }
+};
+
+export const WithRightIcon: Story = {
+  args: {
+    children: 'Next',
+    rightIcon: <FiChevronRight size={16} />,
+    type: 'primary'
+  }
+};
+
+// State examples
+export const Disabled: Story = {
+  args: {
+    children: 'Disabled Button',
+    disabled: true,
+    type: 'primary'
   }
 };
 

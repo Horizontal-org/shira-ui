@@ -1,6 +1,6 @@
 {
   "name": "@horizontal-org/shira-ui",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -39,6 +39,7 @@
     "vite-plugin-dts": "^4.3.0"
   },
   "dependencies": {
+    "react-icons": "^5.4.0",
     "styled-components": "^6.1.13"
   }
 }
