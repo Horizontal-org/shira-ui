@@ -1,19 +1,19 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 export interface ButtonProps {
-  children: React.ReactNode;
+  text: string
   onClick?: () => void;
   type?: 'primary' | 'outline' | 'secondary';
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   disabled?: boolean;
-  size?: 'default' | 'lg';
+  size?: string
 }
 
 interface StyledButtonProps {
   $type: 'primary' | 'outline' | 'secondary';
-  $size?: 'default' | 'lg';
+  $size?: string
   disabled?: boolean;
 }
 
@@ -84,7 +84,7 @@ const Right = styled(SvgWrapper)`
 `;
 
 export const Button = ({ 
-  children, 
+  text, 
   onClick, 
   type = 'primary',
   leftIcon,
@@ -101,7 +101,7 @@ export const Button = ({
       $size={size}
     >
       { leftIcon && <Left>{leftIcon}</Left>}
-      <span>{ children }</span>
+      <span>{ text }</span>
       { rightIcon && <Right>{ rightIcon }</Right>}
     </StyledButton>
   );

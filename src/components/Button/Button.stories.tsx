@@ -44,21 +44,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: 'Primary Button',
+    text: 'Primary Button',
     type: 'primary'
   }
 };
 
 export const Outline: Story = {
   args: {
-    children: 'Outline Button',
+    text: 'Outline Button',
     type: 'outline'
   }
 };
 
 export const Secondary: Story = {
   args: {
-    children: 'Secondary Button',
+    text: 'Secondary Button',
     type: 'secondary'
   }
 };
@@ -66,7 +66,7 @@ export const Secondary: Story = {
 // Icon examples
 export const WithLeftIcon: Story = {
   args: {
-    children: 'Back',
+    text: 'Back',
     leftIcon: <FiChevronLeft size={16} />,
     type: 'primary'
   }
@@ -74,7 +74,7 @@ export const WithLeftIcon: Story = {
 
 export const WithRightIcon: Story = {
   args: {
-    children: 'Next',
+    text: 'Next',
     rightIcon: <FiChevronRight size={16} />,
     type: 'primary'
   }
@@ -83,7 +83,7 @@ export const WithRightIcon: Story = {
 // State examples
 export const Disabled: Story = {
   args: {
-    children: 'Disabled Button',
+    text: 'Disabled Button',
     disabled: true,
     type: 'primary'
   }
@@ -92,7 +92,7 @@ export const Disabled: Story = {
 // Example with longer content
 export const LongText: Story = {
   args: {
-    children: 'This is a button with longer text',
+    text: 'This is a button with longer text',
     type: 'primary'
   }
 };
@@ -100,7 +100,7 @@ export const LongText: Story = {
 // Example with click handler
 export const WithClickHandler: Story = {
   args: {
-    children: 'Click me',
+    text: 'Click me',
     type: 'primary',
     onClick: () => alert('Button clicked!')
   }
