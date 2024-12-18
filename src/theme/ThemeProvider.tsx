@@ -9,11 +9,15 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ 
-  theme = defaultTheme,
+  theme,
   children 
 }) => {
+  const mergedTheme = {
+    ...defaultTheme,
+    ...(theme || {})
+  }
   return (
-    <StyledThemeProvider theme={theme}>
+    <StyledThemeProvider theme={mergedTheme}>
       {children}
     </StyledThemeProvider>
   );
