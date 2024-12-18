@@ -87,11 +87,11 @@ const StyledInput = styled.input`
     font-size: 18px;
     background: white;
     border: 2px solid ${props => props.theme.secondary.dark};
-    color: ${props => props.theme.secondary.dark};
+    color: ${props => props.theme.colors.dark.black};
     transition: all 0.2s ease-in-out;
 
     &::placeholder {
-        color: #aaa;
+        color: ${props => props.theme.colors.dark.darkGrey};
     }
 
     /* Hover state */
@@ -109,7 +109,7 @@ const StyledInput = styled.input`
     &:disabled {
         background: #f5f5f5;
         border-color: #ddd;
-        color: #aaa;
+        color: ${props => props.theme.colors.dark.darkGrey};
         cursor: not-allowed;
     }
 `;
