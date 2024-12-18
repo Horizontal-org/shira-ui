@@ -17,6 +17,30 @@ interface StyledButtonProps {
   disabled?: boolean;
 }
 
+export const Button = ({ 
+  text, 
+  onClick, 
+  type = 'primary',
+  leftIcon,
+  rightIcon,
+  disabled = false,
+  size = 'default'
+}: ButtonProps) => {
+  return (
+    <StyledButton 
+      onClick={onClick} 
+      className="button" 
+      $type={type}
+      disabled={disabled}
+      $size={size}
+    >
+      { leftIcon && <Left>{leftIcon}</Left>}
+      <span>{ text }</span>
+      { rightIcon && <Right>{ rightIcon }</Right>}
+    </StyledButton>
+  );
+};
+
 const StyledButton = styled.button<StyledButtonProps>`
   all: unset;
   -webkit-tap-highlight-color: transparent;
@@ -82,27 +106,3 @@ const Left = styled(SvgWrapper)`
 const Right = styled(SvgWrapper)`  
   margin-left: 12px;
 `;
-
-export const Button = ({ 
-  text, 
-  onClick, 
-  type = 'primary',
-  leftIcon,
-  rightIcon,
-  disabled = false,
-  size = 'default'
-}: ButtonProps) => {
-  return (
-    <StyledButton 
-      onClick={onClick} 
-      className="button" 
-      $type={type}
-      disabled={disabled}
-      $size={size}
-    >
-      { leftIcon && <Left>{leftIcon}</Left>}
-      <span>{ text }</span>
-      { rightIcon && <Right>{ rightIcon }</Right>}
-    </StyledButton>
-  );
-};
