@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export interface ButtonProps {
   text: string
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   type?: 'primary' | 'outline' | 'secondary';
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
