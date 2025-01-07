@@ -15,7 +15,7 @@
   "scripts": {
     "build": "vite build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build -o public"
   },
   "peerDependencies": {
     "react": "^18.0.0"
