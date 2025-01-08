@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export interface ButtonProps {
   text: string
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  type?: 'primary' | 'outline' | 'secondary';
+  type?: 'primary' | 'outline';
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   disabled?: boolean;
@@ -12,7 +12,7 @@ export interface ButtonProps {
 }
 
 interface StyledButtonProps {
-  $type: 'primary' | 'outline' | 'secondary';
+  $type: 'primary' | 'outline';
   $size?: string
   disabled?: boolean;
 }
@@ -74,12 +74,6 @@ const StyledButton = styled.button<StyledButtonProps>`
     &:focus {
       border: 2px solid ${theme.colors.dark.mediumGrey};
     }
-  `}
-
-  ${({ theme, $type }) => $type === 'secondary' && `
-    background: ${theme.colors.green7};
-    border: 1px solid ${theme.colors.green7};
-    color: ${theme.colors.light.white};
   `}
 
   ${({ disabled }) => disabled && `

@@ -12,7 +12,7 @@ const meta = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['primary', 'outline', 'secondary'],
+      options: ['primary', 'outline'],
       description: 'The visual style of the button',
       defaultValue: 'primary'
     },
@@ -53,13 +53,6 @@ export const Outline: Story = {
   args: {
     text: 'Outline Button',
     type: 'outline'
-  }
-};
-
-export const Secondary: Story = {
-  args: {
-    text: 'Secondary Button',
-    type: 'secondary'
   }
 };
 
