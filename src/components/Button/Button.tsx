@@ -51,6 +51,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 
   ${({ theme, $type }) => $type === 'primary' && `
     color: ${theme.colors.light.white};
@@ -70,9 +71,11 @@ const StyledButton = styled.button<StyledButtonProps>`
     background: ${theme.colors.light.white};
     border: 1px solid ${theme.colors.dark.mediumGrey};
     color: ${theme.colors.dark.black};
+    margin: 1px;
 
     &:focus {
       border: 2px solid ${theme.colors.dark.mediumGrey};
+      margin: 0;
     }
   `}
 
