@@ -1,2 +1,5 @@
 export * from './Logo'
 export * from './MenuIcon'
+export * from './AboutIcon'
+export * from './CloseIcon'
+export * from './HomeIcon'

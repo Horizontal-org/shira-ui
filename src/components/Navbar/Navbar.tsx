@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 import { Button } from "../Button";
 import { Logo, MenuIcon } from "../Icons";
+import { MobileMenu } from "../MobileMenu";
 
 export interface NavbarProps {
   color?: string;
   onNavigate: (route: string) => void;
-  MobileMenu: React.ComponentType<{
-    onNavigate: (route: string) => void;
-    onClose: () => void;
-  }>;
   translatedTexts: {
     home: string;
     about: string;
@@ -22,7 +19,6 @@ export interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({
   color,
   onNavigate,
-  MobileMenu,
   translatedTexts,
 }) => {
   const [mobileMenu, handleMobileMenu] = useState(false);
@@ -45,13 +41,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           <DesktopButtons>
             <Button
               type="outline"
-              onClick={() => {}} // go to /admin/login
-              text="Log in"
+              onClick={() => onNavigate("/login")}
+              text={translatedTexts.logIn}
             />
             <Button
               type="primary"
-              onClick={() => {}} // go to /admin/create-space
-              text="Create space"
+              onClick={() => onNavigate("/create-space")}
+              text={translatedTexts.createSpace}
             />
           </DesktopButtons>
 
@@ -68,6 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               handleMobileMenu(false);
             }}
             onClose={() => handleMobileMenu(false)}
+            translatedTexts={translatedTexts}
           />
         )}
       </div>
@@ -76,6 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const NavbarWrapper = styled.div<{ color?: string }>`
+  margin-top: 8px;
   display: flex;
   justify-content: center;
   z-index: 3;
