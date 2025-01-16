@@ -28,7 +28,7 @@ export const Card: FunctionComponent<CardProps> = ({
     <CardWrapper>
       <TopSection>
         <TitleSection>
-          <Body3Bold>{title}</Body3Bold>
+          <TitleText>{title}</TitleText>
           <MenuButton onClick={onMenuClick}>
             <FiMoreVertical size={20} />
           </MenuButton>
@@ -73,12 +73,26 @@ const TopSection = styled.div`
   flex-direction: column;
   padding: 16px;
   gap: 16px;
+  max-height: 90px;
+  overflow: hidden; 
 `;
 
 const TitleSection = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 8px;
+`;
+
+const TitleText = styled(Body3Bold)`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  flex: 1;
+  line-height: 1.2;
 `;
 
 const MenuButton = styled.button`
