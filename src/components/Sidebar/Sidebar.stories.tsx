@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Sidebar } from './Sidebar';
-import { FiHome, FiHelpCircle, FiSettings, FiLogOut } from 'react-icons/fi';
+import { FiHome, FiHelpCircle, FiLogOut } from 'react-icons/fi';
 
 const meta = {
   title: 'Components/Sidebar',
