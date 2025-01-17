@@ -100,6 +100,15 @@ export const WithClickHandler: Story = {
   }
 };
 
+export const differentColor: Story = {
+  args: {
+    text: 'Click me',
+    type: 'primary',
+    onClick: () => alert('Button clicked!'),
+    color: '#849D29'
+  }
+};
+
 const ButtonGroup = styled.div`
   display: flex;
   gap: 12px;
