@@ -66,6 +66,10 @@ const CardWrapper = styled.div`
   box-sizing: border-box;
   max-width: 300px;
   height: 180px;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    max-width: 100%;
+  }
 `;
 
 const TopSection = styled.div`

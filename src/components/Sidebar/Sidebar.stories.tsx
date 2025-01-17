@@ -43,6 +43,7 @@ export const Default: Story = {
   args: {
     menuItems: defaultMenuItems,
     onClose: () => console.log('Sidebar closed'),
+    onCollapse: () => console.log('collapsing')
   },
 };
 
@@ -55,6 +56,7 @@ export const Mobile: Story = {
   args: {
     menuItems: defaultMenuItems,
     onClose: () => console.log('Sidebar closed'),
+    onCollapse: () => console.log('collapsing')
   },
 };
 
@@ -67,5 +69,6 @@ export const Tablet: Story = {
   args: {
     menuItems: defaultMenuItems,
     onClose: () => console.log('Sidebar closed'),
+    onCollapse: () => console.log('collapsing')
   },
 };

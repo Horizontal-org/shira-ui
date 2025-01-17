@@ -10,13 +10,15 @@ export interface SidebarProps {
     onClick: () => void;
   }>;
   onClose?: () => void;
+  onCollapse: (collapsed: boolean) => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ menuItems, onClose }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ menuItems, onClose, onCollapse }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
+    onCollapse(!isCollapsed)
   };
 
   return (
