@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import styled from 'styled-components';
 
 const meta = {
   title: 'Components/Button',
@@ -97,4 +98,33 @@ export const WithClickHandler: Story = {
     type: 'primary',
     onClick: () => alert('Button clicked!')
   }
+};
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 12px;
+  align-items: center;
+`;
+
+export const NavigationButtons: Story = {
+  args: {
+    text: 'Button',
+    type: 'primary'
+  },
+  render: (args) => (
+    <ButtonGroup>
+      <Button 
+        {...args}
+        text="Back" 
+        type="outline"
+        leftIcon={<FiChevronLeft size={16} />}
+      />
+      <Button 
+        {...args}
+        text="Next" 
+        type="primary"
+        rightIcon={<FiChevronRight size={16} />}
+      />
+    </ButtonGroup>
+  )
 };
