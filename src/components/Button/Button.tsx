@@ -10,7 +10,8 @@ export interface ButtonProps {
   rightIcon?: ReactNode;
   disabled?: boolean;
   size?: string;
-  color?: string
+  color?: string;
+  className?: string;
 }
 
 interface StyledButtonProps {
@@ -28,12 +29,13 @@ export const Button = ({
   rightIcon,
   disabled = false,
   size = 'default',
-  color
+  color,
+  className,
 }: ButtonProps) => {
   return (
     <StyledButton 
       onClick={onClick} 
-      className="button" 
+      className={className}
       $type={type}
       disabled={disabled}
       $size={size}
@@ -92,6 +94,11 @@ const StyledButton = styled.button<StyledButtonProps>`
   ${({ $size }) => $size === 'lg' && `
     width: 80%;
     justify-content: center;
+  `}
+
+  ${({ $size }) => $size === 'sm' && `
+    font-size: 12px;
+    padding: 8px 16px;
   `}
 `
 
