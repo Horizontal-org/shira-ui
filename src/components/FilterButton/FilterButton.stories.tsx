@@ -44,7 +44,6 @@ export const Active: Story = {
   },
 };
 
-//
 export const FilterGroup = () => {
   const [activeFilter, setActiveFilter] = useState<'all' | 'published' | 'unpublished'>('all');
 
