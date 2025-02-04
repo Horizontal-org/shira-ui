@@ -1,7 +1,8 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Body4, Body3Bold } from '../Typography';
 import { FiMoreVertical, FiLink } from 'react-icons/fi';
+import { FloatingMenu } from '../FloatingMenu';
 
 export interface CardProps {
   title: string;
@@ -9,7 +10,8 @@ export interface CardProps {
   isPublished: boolean;
   onTogglePublished: () => void;
   onCopyUrl: () => void;
-  onMenuClick: () => void;
+  onEdit: () => void;
+  onDelete: () => void;
 }
 
 interface ToggleSwitchProps {
@@ -22,16 +24,26 @@ export const Card: FunctionComponent<CardProps> = ({
   isPublished,
   onTogglePublished,
   onCopyUrl,
-  onMenuClick
+  onEdit,
+  onDelete
 }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   return (
     <CardWrapper>
       <TopSection>
         <TitleSection>
           <TitleText>{title}</TitleText>
-          <MenuButton onClick={onMenuClick}>
+          <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <FiMoreVertical size={20} />
           </MenuButton>
+          <FloatingMenu
+            isOpen={isMenuOpen}
+            onClose={() => setIsMenuOpen(false)}
+            onEdit={onEdit}
+            onDelete={onDelete}
+            anchorEl={menuButtonRef.current}
+          />
         </TitleSection>
       </TopSection>
 

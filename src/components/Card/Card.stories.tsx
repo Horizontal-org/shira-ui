@@ -28,9 +28,6 @@ const meta = {
     onCopyUrl: {
       description: 'Callback when copy URL button is clicked'
     },
-    onMenuClick: {
-      description: 'Callback when menu button is clicked'
-    }
   },
   decorators: [
     (Story) => (
@@ -57,7 +54,8 @@ export const Default: Story = {
     isPublished: true,
     onTogglePublished: () => console.log('Toggle published'),
     onCopyUrl: () => console.log('Copy URL clicked'),
-    onMenuClick: () => console.log('Menu clicked')
+    onEdit: () => console.log(''),
+    onDelete: () => console.log('')
   }
 };
 
@@ -91,6 +89,5 @@ export const Interactive: Story = {
     ...Default.args,
     onTogglePublished: () => alert('Publish state toggled'),
     onCopyUrl: () => alert('URL copied to clipboard'),
-    onMenuClick: () => alert('Menu clicked')
   }
 };
