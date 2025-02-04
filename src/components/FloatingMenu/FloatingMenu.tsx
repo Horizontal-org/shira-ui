@@ -18,14 +18,14 @@ export const FloatingMenu: FunctionComponent<FloatingMenuProps> = ({
   anchorEl
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ top: 0, left: 0 });
+  const [position, setPosition] = useState({ top: 0, right: "-100px" });
 
   useEffect(() => {
     if (isOpen && anchorEl) {
       const rect = anchorEl.getBoundingClientRect();
       setPosition({
         top: rect.bottom + 8,
-        left: rect.right - 120,
+        right: `-${120 - (window.innerWidth - rect.right)}px`
       });
     }
   }, [isOpen, anchorEl]);

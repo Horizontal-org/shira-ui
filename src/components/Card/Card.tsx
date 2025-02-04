@@ -70,6 +70,7 @@ export const Card: FunctionComponent<CardProps> = ({
 };
 
 const CardWrapper = styled.div`
+  position: relative;
   background: white;
   border: .2px solid ${props => props.theme.colors.dark.mediumGrey};
   border-radius: 12px;
