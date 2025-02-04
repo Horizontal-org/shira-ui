@@ -79,7 +79,8 @@ export const GridLayout: Story = {
       isPublished: true,
       onTogglePublished: () => console.log('Toggle published'),
       onCopyUrl: () => console.log('Copy URL'),
-      onMenuClick: () => console.log('Menu clicked'),
+      onEdit: () => console.log('edit'),
+      onDelete: () => console.log('delete')
     },
     render: function Story() {
       return (
@@ -92,7 +93,8 @@ export const GridLayout: Story = {
               isPublished={card.isPublished}
               onTogglePublished={() => console.log('Toggle published for card', index)}
               onCopyUrl={() => console.log('Copy URL for card', index)}
-              onMenuClick={() => console.log('Menu clicked for card', index)}
+              onEdit={() => console.log('on edit')}
+              onDelete={() => console.log('on delete')}
             />
           ))}
         </Grid>
