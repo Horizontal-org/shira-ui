@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export interface ButtonProps {
   text: string
@@ -8,13 +9,16 @@ export interface ButtonProps {
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   disabled?: boolean;
-  size?: string
+  size?: string;
+  color?: string;
+  className?: string;
 }
 
 interface StyledButtonProps {
   $type: 'primary' | 'outline';
-  $size?: string
+  $size?: string;
   disabled?: boolean;
+  $color?: string;
 }
 
 export const Button = ({ 
@@ -24,15 +28,18 @@ export const Button = ({
   leftIcon,
   rightIcon,
   disabled = false,
-  size = 'default'
+  size = 'default',
+  color,
+  className,
 }: ButtonProps) => {
   return (
     <StyledButton 
       onClick={onClick} 
-      className="button" 
+      className={className}
       $type={type}
       disabled={disabled}
       $size={size}
+      $color={color}
     >
       { leftIcon && <Left>{leftIcon}</Left>}
       <span>{ text }</span>
@@ -53,17 +60,17 @@ const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
   box-sizing: border-box;
 
-  ${({ theme, $type }) => $type === 'primary' && `
+  ${({ theme, $type, $color }) => $type === 'primary' && `
     color: ${theme.colors.light.white};
-    background: ${theme.colors.blue7};
-    border: 2px solid ${theme.colors.blue7};
+    background: ${$color || theme.colors.blue7};
+    border: 2px solid ${$color || theme.colors.blue7};
     &:hover {
-      background: ${theme.colors.blue8};
-      border-color: ${theme.colors.blue8};
+      background: ${$color ? darken(0.1, $color) : theme.colors.blue8};
+      border-color: ${$color ? darken(0.1, $color) : theme.colors.blue8};
     }
     &:focus {
-      background: ${theme.colors.blue8};
-      border-color: ${theme.colors.blue4};
+      background: ${$color ? darken(0.1, $color) : theme.colors.blue8};
+      border-color: ${$color ? darken(0.2, $color) : theme.colors.blue4};
     }
   `}
 
@@ -87,6 +94,11 @@ const StyledButton = styled.button<StyledButtonProps>`
   ${({ $size }) => $size === 'lg' && `
     width: 80%;
     justify-content: center;
+  `}
+
+  ${({ $size }) => $size === 'sm' && `
+    font-size: 12px;
+    padding: 8px 16px;
   `}
 `
 
